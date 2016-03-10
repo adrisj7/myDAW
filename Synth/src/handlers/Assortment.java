@@ -21,8 +21,11 @@ public class Assortment {
 
 	public Assortment(Component[] initList) {
 		for (int i = 0; i < initList.length; i++) {
-
+			addComponent(initList[i]);
 		}
 	}
-
+	
+	public void addComponent(Component component) {
+		list.add(component);
+	}
 }

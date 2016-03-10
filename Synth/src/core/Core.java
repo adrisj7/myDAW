@@ -21,7 +21,8 @@ public class Core implements Runnable {
 	Graphics2D g2d;
 
 	// BACKEND OBJECTS
-	ObjectHandler handler;
+	public static ObjectHandler handler;
+	// TODO: Check if static screws things up.
 
 	public Core() {
 		thread = new Thread(this);
@@ -36,7 +37,6 @@ public class Core implements Runnable {
 		int millisPerFrame = 1000 / 30;
 		while (running) {
 			if (System.currentTimeMillis() - prevTime > millisPerFrame) {
-				System.out.println("POTATO THIS SUX");
 				prevTime = System.currentTimeMillis();
 				bs = window.getBufferStrategy();
 				g2d = (Graphics2D) bs.getDrawGraphics();
@@ -51,6 +51,7 @@ public class Core implements Runnable {
 		if (!running) {
 			running = true;
 			thread.start();
+			handler.initialize();
 		}
 	}
 

@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 import components.Component;
 import core.Core;
+import handlers.assortments.AssortmentCreator;
 
 public class ObjectHandler {
 	public LinkedList<Component> componentList = new LinkedList<Component>();
@@ -17,6 +18,13 @@ public class ObjectHandler {
 			componentList.get(i).draw(g);
 		}
 	}
+
+	public void initialize() {
+		AssortmentCreator.createAssortmentBackground();
+	}
 	
+	public void addComponent(Component component) {
+		componentList.add(component);
+	}
 	
 }
